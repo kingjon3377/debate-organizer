@@ -1,9 +1,9 @@
 package model;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
+import org.joda.time.LocalDate;
 /**
  * A source of evidence.
  * 
@@ -22,7 +22,7 @@ public class Source {
 	/**
 	 * The date of the source. (Oh, for some way to specify precision ...)
 	 */
-	private Date date;
+	private LocalDate date;
 	// FIXME: What else goes here?
 	/**
 	 * Whether the source is out of date (and thus needs to be replaced).
@@ -82,7 +82,7 @@ public class Source {
 	/**
 	 * @return the date of the source.
 	 */
-	public final Date date() {
+	public final LocalDate date() {
 		return date;
 	}
 
@@ -90,7 +90,7 @@ public class Source {
 	 * @param _date
 	 *            the date of the source
 	 */
-	public final void date(final Date _date) {
+	public final void date(final LocalDate _date) {
 		date = _date;
 	}
 
@@ -122,7 +122,7 @@ public class Source {
 	 *            Whether the work should be considered out of date.
 	 */
 	public Source(final Author primaryAuthor, final String _title,
-			final Date _date, final boolean dated) {
+			final LocalDate _date, final boolean dated) {
 		authors = new ArrayList<Author>();
 		authors.add(primaryAuthor);
 		title = _title;
@@ -143,7 +143,7 @@ public class Source {
 	 *            Whether the work should be considered out of date
 	 */
 	public Source(final List<Author> _authors, final String _title,
-			final Date _date, final boolean dated) {
+			final LocalDate _date, final boolean dated) {
 		authors = new ArrayList<Author>(_authors);
 		title = _title;
 		date = _date;

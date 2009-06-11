@@ -66,17 +66,25 @@ public class Argument implements Point {
 	 */
 	public String asRead() {
 		final StringBuffer buf = new StringBuffer(slug());
-		char index = base;
-		for (Point point : points) {
+		for (int i = 0; i < points.size(); i++) {
 			buf.append(prefix);
 			buf.append(' ');
-			buf.append(index++);
+			buf.append(Character.valueOf(charAdd(base, (char) i)));
 			buf.append(": ");
-			buf.append(point.asRead());
+			buf.append(points.get(i).asRead());
 			buf.append('\n');
 //			index++;
 		}
 		return buf.toString();
+	}
+	/**
+	 * Add two chars, because their sum is always promoted to int.
+	 * @param first The first char
+	 * @param second The second char
+	 * @return Their sum, as a char
+	 */
+	private static char charAdd(final char first, final char second) {
+		return (char) (first + second);
 	}
 	/**
 	 * @return The claim the argument is supporting.
