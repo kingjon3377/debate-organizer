@@ -828,10 +828,6 @@
             <ruleset>Naming Rules</ruleset>
         </rule>
         <rule>
-            <name>AvoidFieldNameMatchingMethodName</name>
-            <ruleset>Naming Rules</ruleset>
-        </rule>
-        <rule>
             <name>NoPackage</name>
             <ruleset>Naming Rules</ruleset>
         </rule>
