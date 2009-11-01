@@ -56,12 +56,12 @@ public class Source {
 	/**
 	 * Replace the list of authors.
 	 * 
-	 * @param _authors
+	 * @param newAuthors
 	 *            the new list of authors
 	 */
-	public final void setAuthors(final List<Author> _authors) {
+	public final void setAuthors(final List<Author> newAuthors) {
 		authors.clear();
-		authors.addAll(_authors);
+		authors.addAll(newAuthors);
 	}
 
 	/**
@@ -72,11 +72,11 @@ public class Source {
 	}
 
 	/**
-	 * @param _title
+	 * @param newTitle
 	 *            the title of the source
 	 */
-	public final void title(final String _title) {
-		title = _title;
+	public final void title(final String newTitle) {
+		title = newTitle;
 	}
 
 	/**
@@ -87,11 +87,11 @@ public class Source {
 	}
 
 	/**
-	 * @param _date
+	 * @param newDate
 	 *            the date of the source
 	 */
-	public final void date(final LocalDate _date) {
-		date = _date;
+	public final void date(final LocalDate newDate) {
+		date = newDate;
 	}
 
 	/**
@@ -102,11 +102,11 @@ public class Source {
 	}
 
 	/**
-	 * @param _outOfDate
+	 * @param newOutOfDate
 	 *            whether the source is out of date
 	 */
-	public final void outOfDate(final boolean _outOfDate) {
-		outOfDate = _outOfDate;
+	public final void outOfDate(final boolean newOutOfDate) {
+		outOfDate = newOutOfDate;
 	}
 
 	/**
@@ -114,49 +114,51 @@ public class Source {
 	 * 
 	 * @param primaryAuthor
 	 *            The primary author
-	 * @param _title
+	 * @param newTitle
 	 *            The title of the work
-	 * @param _date
+	 * @param newDate
 	 *            The date of the work
 	 * @param dated
 	 *            Whether the work should be considered out of date.
 	 */
-	public Source(final Author primaryAuthor, final String _title,
-			final LocalDate _date, final boolean dated) {
+	public Source(final Author primaryAuthor, final String newTitle,
+			final LocalDate newDate, final boolean dated) {
 		authors = new ArrayList<Author>();
 		authors.add(primaryAuthor);
-		title = _title;
-		date = _date;
+		title = newTitle;
+		date = newDate;
 		outOfDate = dated;
 	}
 
 	/**
 	 * Constructor with potentially multiple authors.
 	 * 
-	 * @param _authors
+	 * @param newAuthors
 	 *            The authors of the work
-	 * @param _title
+	 * @param newTitle
 	 *            The title of the work
-	 * @param _date
+	 * @param newDate
 	 *            The date of the work
 	 * @param dated
 	 *            Whether the work should be considered out of date
 	 */
-	public Source(final List<Author> _authors, final String _title,
-			final LocalDate _date, final boolean dated) {
-		authors = new ArrayList<Author>(_authors);
-		title = _title;
-		date = _date;
+	public Source(final List<Author> newAuthors, final String newTitle,
+			final LocalDate newDate, final boolean dated) {
+		authors = new ArrayList<Author>(newAuthors);
+		title = newTitle;
+		date = newDate;
 		outOfDate = dated;
 	}
 
+	// ESCA-JAVA0130:
 	/**
 	 * @note This should conform to citation standards laid out by debate
 	 *       leagues.
 	 * @return A summary form, suitable to be read in-round.
 	 * @bug FIXME: Implement!
+	 * FIXME: This shouldn't be final, but CheckStyle objects if it isn't.
 	 */
-	public String summary() {
+	public final String summary() {
 		return "";
 	}
 }

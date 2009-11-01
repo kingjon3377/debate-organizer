@@ -5,8 +5,9 @@ import java.util.List;
 
 /**
  * An argument -- a series of points.
+ * 
  * @author Jonathan Lovelace
- *
+ * 
  */
 public class Argument implements Point {
 	/**
@@ -18,53 +19,66 @@ public class Argument implements Point {
 		slug = "A sample slug";
 		points = new ArrayList<Point>();
 	}
+
 	/**
 	 * Constructor.
-	 * @param _points The points in the argument.
+	 * 
+	 * @param argPoints
+	 *            The points in the argument.
 	 */
-	public Argument(final List<Point> _points) {
+	public Argument(final List<Point> argPoints) {
 		prefix = "Point";
 		base = 'A';
 		slug = "A sample slug";
-		points = new ArrayList<Point>(_points);
+		points = new ArrayList<Point>(argPoints);
 	}
+
 	/**
 	 * Explicit constructor.
-	 * @param _points The points in the argument.
-	 * @param _prefix The prefix to every point's number
-	 * @param _base The first number
-	 * @param _slug The claim the argument supports
+	 * 
+	 * @param argPoints
+	 *            The points in the argument.
+	 * @param numberPrefix
+	 *            The prefix to every point's number
+	 * @param baseNumber
+	 *            The first number
+	 * @param newSlug
+	 *            The claim the argument supports
 	 */
-	public Argument(final List<Point> _points, final String _prefix, final char _base, final String _slug) {
-		points = new ArrayList<Point>(_points);
-		prefix = _prefix;
-		base = _base;
-		slug = _slug;
+	public Argument(final List<Point> argPoints, final String numberPrefix,
+			final char baseNumber, final String newSlug) {
+		points = new ArrayList<Point>(argPoints);
+		prefix = numberPrefix;
+		base = baseNumber;
+		slug = newSlug;
 	}
+
 	/**
 	 * The points that make up the argument.
 	 */
 	private final List<Point> points;
 	/**
-	 * "Point" or "Subpoint", usually: This is what is read before
-	 * each number. It shouldn't include a trailing space unless you
-	 * want a double space.
+	 * "Point" or "Subpoint", usually: This is what is read before each number.
+	 * It shouldn't include a trailing space unless you want a double space.
 	 */
 	private String prefix;
 	/**
 	 * This is the "number" of the first point. ('1', 'a', etc.)
+	 * 
 	 * @todo TODO: How to do Roman numerals?
-
 	 */
 	private char base;
 	/**
-	 * The claim the argument is making
+	 * The claim the argument is making.
 	 */
 	private String slug;
+
 	/**
-	 * @return The argument as it should be read in-round
+	 * FIXME: This probably shouldn't be final, but CheckStyle objects.
+	 * 
+	 * @return The argument as it should be read in-round.
 	 */
-	public String asRead() {
+	public final String asRead() {
 		final StringBuffer buf = new StringBuffer(slug());
 		for (int i = 0; i < points.size(); i++) {
 			buf.append(prefix);
@@ -73,53 +87,65 @@ public class Argument implements Point {
 			buf.append(": ");
 			buf.append(points.get(i).asRead());
 			buf.append('\n');
-//			index++;
 		}
 		return buf.toString();
 	}
+
 	/**
 	 * Add two chars, because their sum is always promoted to int.
-	 * @param first The first char
-	 * @param second The second char
+	 * 
+	 * @param first
+	 *            The first char
+	 * @param second
+	 *            The second char
 	 * @return Their sum, as a char
 	 */
 	private static char charAdd(final char first, final char second) {
 		return (char) (first + second);
 	}
+
 	/**
 	 * @return The claim the argument is supporting.
 	 */
-	public String slug() {
+	public final String slug() {
 		return slug;
 	}
+
 	/**
-	 * @param _slug The claim the argument is supporting
+	 * @param newSlug
+	 *            The claim the argument is supporting
 	 */
-	public void slug(final String _slug) {
-		slug = _slug;
+	public final void slug(final String newSlug) {
+		slug = newSlug;
 	}
+
 	/**
 	 * @return The prefix to every number
 	 */
-	public String prefix() {
+	public final String prefix() {
 		return prefix;
 	}
+
 	/**
-	 * @param _prefix The prefix to every number
+	 * @param numberPrefix
+	 *            The prefix to every number
 	 */
-	public void prefix(final String _prefix) {
-		prefix = _prefix;
+	public final void prefix(final String numberPrefix) {
+		prefix = numberPrefix;
 	}
+
 	/**
 	 * @return The number of the first point
 	 */
-	public char base() {
+	public final char base() {
 		return base;
 	}
+
 	/**
-	 * @param _base The number of the first point
+	 * @param baseNumber
+	 *            The number of the first point
 	 */
-	public void base(final char _base) {
-		base = _base;
+	public final void base(final char baseNumber) {
+		base = baseNumber;
 	}
 }

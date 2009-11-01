@@ -28,10 +28,11 @@ public class Card implements Point {
 	}
 
 	/**
-	 * @param _slug The claim that the evidence makes
+	 * @param cardSlug
+	 *            The claim that the evidence makes
 	 */
-	public final void slug(final String _slug) {
-		slug = _slug;
+	public final void slug(final String cardSlug) {
+		slug = cardSlug;
 	}
 
 	/**
@@ -42,10 +43,11 @@ public class Card implements Point {
 	}
 
 	/**
-	 * @param _source Where the evidence is taken from
+	 * @param cardSource
+	 *            Where the evidence is taken from
 	 */
-	public final void source(final Source _source) {
-		source = _source;
+	public final void source(final Source cardSource) {
+		source = cardSource;
 	}
 
 	/**
@@ -56,31 +58,35 @@ public class Card implements Point {
 	}
 
 	/**
-	 * @param _text The text of the evidence
+	 * @param cardText
+	 *            The text of the evidence
 	 */
-	public final void text(final String _text) {
-		text = _text;
+	public final void text(final String cardText) {
+		text = cardText;
 	}
 
 	/**
 	 * Constructor.
 	 * 
-	 * @param _source
+	 * @param cardSource
 	 *            The source of the card.
-	 * @param _slug
+	 * @param cardSlug
 	 *            The claim the evidence makes.
-	 * @param _text
+	 * @param cardText
 	 *            The text of the evidence.
 	 */
-	public Card(final Source _source, final String _slug, final String _text) {
-		source = _source;
-		slug = _slug;
-		text = _text;
+	public Card(final Source cardSource, final String cardSlug, final String cardText) {
+		source = cardSource;
+		slug = cardSlug;
+		text = cardText;
 	}
+
 	/**
+	 * FIXME: This probably shouldn't be final, but CheckStyle objects.
+	 * 
 	 * @return The card as it should be read in the round.
 	 */
-	public String asRead() {
+	public final String asRead() {
 		return slug + " From " + source.summary() + ": " + text;
 	}
 }

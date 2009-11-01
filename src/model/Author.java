@@ -2,7 +2,7 @@ package model;
 
 /**
  * An author of a source.
- * 
+ *
  * @author Jonathan Lovelace
  */
 public class Author {
@@ -30,31 +30,31 @@ public class Author {
 	}
 
 	/**
-	 * @param _name
+	 * @param authName
 	 *            the author's name
 	 */
-	public final void name(final String _name) {
-		name = _name;
+	public final void name(final String authName) {
+		name = authName;
 	}
 
 	/**
-	 * @param _quals
+	 * @param authQuals
 	 *            the author's qualifications
 	 */
-	public final void quals(final String _quals) {
-		quals = _quals;
+	public final void quals(final String authQuals) {
+		quals = authQuals;
 	}
 
 	/**
 	 * Constructor.
-	 * 
-	 * @param _name
+	 *
+	 * @param authName
 	 *            the author's name
-	 * @param _quals
+	 * @param authQuals
 	 *            the author's qualifications
 	 */
-	public Author(final String _name, final String _quals) {
-		name = _name;
-		quals = _quals;
+	public Author(final String authName, final String authQuals) {
+		name = authName;
+		quals = authQuals;
 	}
 }
